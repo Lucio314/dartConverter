@@ -265,6 +265,10 @@ void main() {
   unitesDeMasse = <String>['km', 'hm', 'dam', 'm', 'dm', 'cm', 'mm'];
   List<String> unitesDeCapacites;
   unitesDeCapacites = <String>['kl', 'hl', 'dal', 'l', 'dl', 'cl', 'ml'];
+  double valeur = 0;
+  String uniteDepart = '';
+  String uniteDestination = '';
+  double resultat = 0;
   while (choix != '0') {
     print("Bienvenue dans le convertisseur !");
     print("Choisissez le type de conversion :");
@@ -279,7 +283,6 @@ void main() {
     if (choix == '1') {
       print("Conversion d'unités de mesure choisie.");
       print("Entrez la valeur à convertir :");
-      double valeur = 0;
       bool valeurValide = false;
       bool conversionValide = false;
       while (!conversionValide) {
@@ -339,13 +342,13 @@ void main() {
         } else {
           print("Unités de conversion non valides. Veuillez réessayer :");
         }
-        double resultat = conversion(
+
+        resultat = conversion(
             valeur: valeur,
             uniteDepart: uniteDepart,
             uniteDestination: uniteDestination);
-
-        print("$valeur $uniteDepart équivaut à $resultat $uniteDestination");
       }
+      print("$valeur $uniteDepart équivaut à $resultat $uniteDestination");
     } else if (choix == '2') {
       print("Conversion de température choisie.");
       print("Entrez la température à convertir :");
@@ -367,10 +370,10 @@ void main() {
           conversionTemperature(temperature, uniteDepart, uniteDestination);
 
       print("$temperature $uniteDepart équivaut à $resultat $uniteDestination");
-    } else if (choix == '0') {
-      print("Au revoir");
     } else if (choix == '3') {
       convertDevises();
+    } else if (choix == '0') {
+      print("Au revoir");
     } else {
       print("Choix non valide.");
     }
